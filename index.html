@@ -145,7 +145,7 @@
             border-radius: 2px;
         }
 
-        /* Cards (Experience, Projects, Certs) */
+        /* Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,28 +155,46 @@
         .card {
             background: var(--white);
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
-            border-left: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--accent-blue);
+            border-bottom: 5px solid var(--accent-blue);
+        }
+        
+        /* Image styling for cards */
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain; /* ensures certificates don't get cropped awkwardly */
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+
+        .card-img.cover {
+            object-fit: cover; /* better for photos of people/work */
         }
 
         .card h3 {
             color: var(--primary-blue);
             margin-bottom: 5px;
+            font-size: 1.2rem;
         }
 
         .card .date {
             color: var(--accent-blue);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         /* Skills */
@@ -234,12 +252,7 @@
             font-weight: 600;
         }
 
-        .contact-item i {
-            color: var(--accent-blue);
-            font-size: 1.2rem;
-        }
-
-        /* Scroll Reveal Animation Classes */
+        /* Scroll Reveal */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -251,7 +264,6 @@
             transform: translateY(0);
         }
 
-        /* Keyframes for Hero */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -288,7 +300,7 @@
         <!-- About Section -->
         <section id="about" class="reveal">
             <h2 class="section-title">About Me</h2>
-            <div class="card" style="text-align: center; border-left: none;">
+            <div class="card" style="text-align: center; border-bottom: none;">
                 <p>Hello! I am a final-year Industrial Engineering student at Universitas Indonesia (Cum Laude GPA: 3.64/4.00). I thrive at the intersection of analytical problem-solving and creative design. With hands-on experience in market research, financial modeling, and product development, I am dedicated to driving strategic decisions that create sustainable and impactful solutions.</p>
             </div>
         </section>
@@ -298,16 +310,19 @@
             <h2 class="section-title">Professional Experience</h2>
             <div class="grid">
                 <div class="card">
+                    <img src="skha-consulting.png" alt="Skha Consulting" class="card-img cover">
                     <h3>Research Analyst Intern</h3>
                     <div class="date">Skha Consulting | Mar 2026 - Present</div>
                     <p>Contribute to strategic decision-making by conducting market research, analyzing data, and synthesizing insights into structured recommendations for project teams.</p>
                 </div>
                 <div class="card">
+                    <img src="pertamina.png" alt="Pertamina Hulu Rokan" class="card-img cover">
                     <h3>Strategic Planning Intern</h3>
                     <div class="date">PT Pertamina Hulu Rokan | Jul 2025 - Aug 2025</div>
                     <p>Contributed to strategic planning by applying analytical and problem-solving skills, leveraging deep understanding of financial modeling, transaction data, and forecasting.</p>
                 </div>
                 <div class="card">
+                    <img src="bappenas.png" alt="Bappenas SDGs" class="card-img cover">
                     <h3>Monitoring & Evaluation Intern</h3>
                     <div class="date">Sekretariat Nasional SDGs Bappenas | May 2025</div>
                     <p>Monitored and evaluated sustainable development goals, aligning technical analytics with unique solutions for meaningful environmental impact.</p>
@@ -320,10 +335,12 @@
             <h2 class="section-title">Key Projects</h2>
             <div class="grid">
                 <div class="card">
+                    <img src="asrama-mart.png" alt="Asrama Mart Data" class="card-img cover">
                     <h3>Quality Improvement Asrama Mart</h3>
                     <p>Acted as Team Leader applying the Six Sigma problem-solving method to address inefficiencies. Successfully enhanced product stock availability by 85%.</p>
                 </div>
                 <div class="card">
+                    <img src="s-check.png" alt="S-Check Interface" class="card-img cover">
                     <h3>S-Check Product Development</h3>
                     <p>Developed user-centric solutions utilizing the Double Diamond framework. Led end-to-end UI design and market analysis, resulting in an 85% user satisfaction rate.</p>
                 </div>
@@ -335,23 +352,28 @@
             <h2 class="section-title">Certifications & Awards</h2>
             <div class="grid">
                 <div class="card">
-                    <h3><i class="fas fa-trophy" style="color: gold;"></i> LeadCompetition Semi-Finalist</h3>
+                    <img src="lead-competition.png" alt="LeadCompetition Certificate" class="card-img">
+                    <h3>LeadCompetition Semi-Finalist</h3>
                     <div class="date">AIESEC in UI | Jun - Aug 2025</div>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-certificate" style="color: var(--accent-blue);"></i> English for Career Development</h3>
+                    <img src="english-mooc.png" alt="English MOOC Certificate" class="card-img">
+                    <h3>English for Career Development</h3>
                     <div class="date">Online Professional English Network | May 2025</div>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-certificate" style="color: var(--accent-blue);"></i> Primavera Cloud Management</h3>
+                    <img src="oracle-cert.png" alt="Oracle Certificate" class="card-img">
+                    <h3>Primavera Cloud Management</h3>
                     <div class="date">Oracle Corporation | Oct 2024</div>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-medal" style="color: silver;"></i> EPT - Grade A (Score: 557)</h3>
+                    <img src="ept-cert.png" alt="EPT Certificate" class="card-img">
+                    <h3>EPT - Grade A (Score: 557)</h3>
                     <div class="date">LBI Universitas Indonesia | Nov 2022</div>
                 </div>
                 <div class="card">
-                    <h3><i class="fas fa-trophy" style="color: gold;"></i> 1st Place - National Short Story</h3>
+                    <img src="binarmedia-cert.png" alt="Binarmedia Certificate" class="card-img">
+                    <h3>1st Place - National Short Story</h3>
                     <div class="date">Penerbit Binarmedia | Oct 2020</div>
                 </div>
             </div>
@@ -378,15 +400,15 @@
             <h2 class="section-title">Let's Connect!</h2>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" style="color: var(--accent-blue);"></i>
                     <a href="mailto:tsurayyalya@gmail.com">tsurayyalya@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone" style="color: var(--accent-blue);"></i>
                     <a href="tel:+6281214045883">+62 8121 404 5883</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin" style="color: var(--accent-blue);"></i>
                     <a href="https://linkedin.com/in/alyatsurayyamumtaz/" target="_blank">LinkedIn Profile</a>
                 </div>
             </div>
@@ -395,7 +417,6 @@
 
     <!-- JavaScript for Interactivity -->
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -405,7 +426,6 @@
             });
         });
 
-        // Scroll Reveal Animation
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -420,7 +440,6 @@
         }
 
         window.addEventListener("scroll", reveal);
-        // Trigger once on load
         reveal();
     </script>
 </body>
