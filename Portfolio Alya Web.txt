@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alya Tsurayya Mumtaz | Portfolio</title>
+    <!-- Google Fonts for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary-blue: #1e3c72;
+            --secondary-blue: #2a5298;
+            --accent-blue: #3498db;
+            --light-bg: #f4f7f6;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 50px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards (Experience, Projects, Certs) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 5px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent-blue);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .card .date {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            color: var(--accent-blue);
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 600;
+        }
+
+        .contact-item i {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframes for Hero */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">Alya Tsurayya Mumtaz</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Awards</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <h1>Alya Tsurayya Mumtaz</h1>
+        <p>Industrial Engineering Student at Universitas Indonesia | Passionate about Strategic Planning, Data Analytics, and Product Development.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <h2 class="section-title">About Me</h2>
+            <div class="card" style="text-align: center; border-left: none;">
+                <p>Hello! I am a final-year Industrial Engineering student at Universitas Indonesia (Cum Laude GPA: 3.64/4.00). I thrive at the intersection of analytical problem-solving and creative design. With hands-on experience in market research, financial modeling, and product development, I am dedicated to driving strategic decisions that create sustainable and impactful solutions.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="reveal">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Research Analyst Intern</h3>
+                    <div class="date">Skha Consulting | Mar 2026 - Present</div>
+                    <p>Contribute to strategic decision-making by conducting market research, analyzing data, and synthesizing insights into structured recommendations for project teams.</p>
+                </div>
+                <div class="card">
+                    <h3>Strategic Planning Intern</h3>
+                    <div class="date">PT Pertamina Hulu Rokan | Jul 2025 - Aug 2025</div>
+                    <p>Contributed to strategic planning by applying analytical and problem-solving skills, leveraging deep understanding of financial modeling, transaction data, and forecasting.</p>
+                </div>
+                <div class="card">
+                    <h3>Monitoring & Evaluation Intern</h3>
+                    <div class="date">Sekretariat Nasional SDGs Bappenas | May 2025</div>
+                    <p>Monitored and evaluated sustainable development goals, aligning technical analytics with unique solutions for meaningful environmental impact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="reveal">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Quality Improvement Asrama Mart</h3>
+                    <p>Acted as Team Leader applying the Six Sigma problem-solving method to address inefficiencies. Successfully enhanced product stock availability by 85%.</p>
+                </div>
+                <div class="card">
+                    <h3>S-Check Product Development</h3>
+                    <p>Developed user-centric solutions utilizing the Double Diamond framework. Led end-to-end UI design and market analysis, resulting in an 85% user satisfaction rate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="reveal">
+            <h2 class="section-title">Certifications & Awards</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fas fa-trophy" style="color: gold;"></i> LeadCompetition Semi-Finalist</h3>
+                    <div class="date">AIESEC in UI | Jun - Aug 2025</div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-certificate" style="color: var(--accent-blue);"></i> English for Career Development</h3>
+                    <div class="date">Online Professional English Network | May 2025</div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-certificate" style="color: var(--accent-blue);"></i> Primavera Cloud Management</h3>
+                    <div class="date">Oracle Corporation | Oct 2024</div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-medal" style="color: silver;"></i> EPT - Grade A (Score: 557)</h3>
+                    <div class="date">LBI Universitas Indonesia | Nov 2022</div>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-trophy" style="color: gold;"></i> 1st Place - National Short Story</h3>
+                    <div class="date">Penerbit Binarmedia | Oct 2020</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <h2 class="section-title">Technical Skills & Tools</h2>
+            <div class="skills-container">
+                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-tag">R Studio</span>
+                <span class="skill-tag">IBM SPSS Modeler</span>
+                <span class="skill-tag">Oracle Primavera P6</span>
+                <span class="skill-tag"><i class="fab fa-figma"></i> Figma</span>
+                <span class="skill-tag">CAD</span>
+                <span class="skill-tag"><i class="fab fa-google"></i> Google Suite</span>
+                <span class="skill-tag"><i class="fab fa-microsoft"></i> Microsoft Office</span>
+                <span class="skill-tag">Canva & CapCut</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <h2 class="section-title">Let's Connect!</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:tsurayyalya@gmail.com">tsurayyalya@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+6281214045883">+62 8121 404 5883</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/alyatsurayyamumtaz/" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
